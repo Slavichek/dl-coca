@@ -1,0 +1,205 @@
+@mixin display-flex {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+@mixin flex-direction($direction) {
+    -webkit-flex-direction: $direction;
+    -moz-flex-direction: $direction;
+    -ms-flex-direction: $direction;
+    -o-flex-direction: $direction;
+    flex-direction: $direction;
+}
+
+@mixin flex-wrap($value) {
+    -webkit-flex-wrap: $value;
+    -moz-flex-wrap: $value;
+    -ms-flex-wrap: $value;
+    -o-flex-wrap: $value;
+    flex-wrap: $value;
+}
+
+@mixin align-items($align) {
+    -ms-align-items: $align;
+    -webkit-box-align: $align;
+    -webkit-align-items: $align;
+    -ms-flex-align: $align;
+    align-items: $align;
+}
+
+@mixin justify-content($justify) {
+    -webkit-justify-content: $justify;
+    justify-content: $justify;
+}
+
+@mixin vertical-centered-content {
+    @include display-flex;
+    @include flex-direction(column);
+    justify-content: center;
+}
+
+@mixin row-centered-content {
+    //@include display-flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    @include flex-direction(row);
+    @include align-items(center);
+
+    justify-content: flex-start;
+}
+
+@mixin full-parent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include square(100%);
+}
+
+@mixin filter($filter) {
+    -webkit-filter: $filter;
+    filter: $filter;
+}
+
+@mixin background-size($size) {
+    -webkit-background-size: $size;
+    background-size: $size;
+}
+
+@mixin transform($tr) {
+    -webkit-transform: $tr;
+    -moz-transform: $tr;
+    -ms-transform: $tr;
+    -o-transform: $tr;
+    transform: $tr;
+}
+
+@mixin transform-origin($tr) {
+    -webkit-transform-origin: $tr;
+    transform-origin: $tr;
+}
+
+@mixin paddings($gutter) {
+    padding-left: floor(($gutter / 2));
+    padding-right: ceil(($gutter / 2));
+}
+
+@mixin transition($transit) {
+    -webkit-transition: $transit;
+    -moz-transition: $transit;
+    -o-transition: $transit;
+    transition: $transit;
+}
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin list-inline-gutters($gutter) {
+    @include make-row($gutter);
+
+    > li {
+        @include paddings($gutter);
+    }
+}
+
+@mixin border-image($start-color, $end-color, $start-percent, $end-percent) {
+    -moz-border-image: -moz-linear-gradient(
+        left,
+        $start-color $start-percent,
+        $end-color $end-percent
+    );
+    -webkit-border-image: -webkit-linear-gradient(
+        left,
+        $start-color $start-percent,
+        $end-color $end-percent
+    );
+    border-image: linear-gradient(
+        to right,
+        $start-color $start-percent,
+        $end-color $end-percent
+    );
+}
+
+@mixin optional-at-root($sel) {
+    @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+        @content;
+    }
+}
+
+@mixin placeholder {
+    @include optional-at-root("::-webkit-input-placeholder") {
+        @content;
+    }
+
+    @include optional-at-root(":-moz-placeholder") {
+        @content;
+    }
+
+    @include optional-at-root("::-moz-placeholder") {
+        @content;
+    }
+
+    @include optional-at-root(":-ms-input-placeholder") {
+        @content;
+    }
+}
+
+@mixin button-variant-plain($color, $border, $background) {
+    $border: $background;
+
+    color: $color;
+    background: $background;
+    border-color: $border;
+
+    &:hover {
+        color: $color;
+        background-color: darken($border, 5%);
+        border-color: darken($border, 5%);
+    }
+
+    &:focus,
+    &.focus,
+    &:active,
+    &.active,
+    .open > &.dropdown-toggle {
+        outline: 0px auto -webkit-focus-ring-color !important;
+        outline-offset: 0px !important;
+        color: $color;
+        background-color: darken($border, 17%);
+        border-color: darken($border, 17%);
+    }
+}
+
+@mixin button-variant-plain-1($color, $border, $background) {
+    $border: $background;
+
+    color: $color;
+    background: $background;
+    border-color: $border;
+
+    &:hover {
+        color: $color;
+        background-color: darken($border, 7%);
+        border-color: darken($border, 5%);
+    }
+
+    &:focus,
+    &.focus,
+    &:active,
+    &.active,
+    .open > &.dropdown-toggle {
+        outline: 0px auto -webkit-focus-ring-color !important;
+        outline-offset: 0px !important;
+        color: $color;
+        background-color: darken($border, 40%);
+        border-color: darken($border, 40%);
+    }
+}

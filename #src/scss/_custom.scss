@@ -1,0 +1,86 @@
+@import "mixins", "variables";
+* {
+    box-sizing: border-box;
+}
+img {
+    display: block;
+    width: auto;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.flex {
+    @include display-flex;
+}
+
+.flex-column {
+    @include display-flex;
+    @include flex-direction(column);
+}
+
+.flex-align-center {
+    @include align-items(center);
+}
+.flex-row-center {
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+.flex-start {
+    justify-content: flex-start;
+}
+
+.flex-between {
+    justify-content: space-between;
+}
+.flex-bottom {
+    margin-top: auto;
+}
+
+.flex-wrap {
+    @include flex-wrap(wrap);
+}
+
+.center {
+    text-align: center;
+}
+.left {
+    text-align: left;
+}
+.right {
+    text-align: right;
+}
+
+.btn {
+    outline: none;
+    display: inline-block;
+    transition: 0.35s ease;
+    position: relative;
+    border: 2px solid $color-white;
+    padding: 0.75em 2.7em;
+    min-width: 186px;
+    border-radius: 15px 15px 15px 0;
+    background-color: transparent;
+    &--inversion {
+        color: white;
+        background-color: transparent;
+        position: relative;
+        z-index: 1;
+        &:hover {
+            color: $color-bg-blue;
+            background-color: white;
+        }
+    }
+}
+.relative {
+    position: relative;
+}
+h1 {
+    font-weight: normal !important;
+}

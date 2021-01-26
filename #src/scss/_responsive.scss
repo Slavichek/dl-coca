@@ -1,0 +1,212 @@
+@media (max-width: 1500px) {
+    body {
+        font-size: 95%;
+    }
+    .section__block--xl {
+        flex: 0 0 57%;
+    }
+}
+@media (max-width: 1400px) {
+    .message {
+        left: 43%;
+    }
+}
+
+@media (max-width: 1199px) {
+    body {
+        font-size: 90%;
+    }
+    .snowflake,
+    .message {
+        display: none;
+    }
+}
+@media (max-width: 1024px) {
+    .navigation {
+        display: none;
+    }
+    .flex-md-column {
+        @include display-flex;
+        @include flex-direction(column);
+        &--reverse {
+            @include flex-direction(column-reverse);
+        }
+    }
+    .block {
+        &--border {
+            width: 97%;
+        }
+    }
+    .section {
+        &-padding {
+            &--mount-town {
+                padding: 15.813em 0 30em 0;
+            }
+        }
+    }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    .block {
+        &--xl {
+            margin-bottom: 1em;
+        }
+        &__form {
+            .form {
+                width: 60%;
+            }
+        }
+    }
+    label {
+        .menu {
+            right: 30px;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    #myMenu {
+        display: none;
+    }
+    .body {
+        font-size: 100%;
+    }
+    .flex-sm-column {
+        @include display-flex;
+        @include flex-direction(column);
+        &--reverse {
+            @include flex-direction(column-reverse);
+        }
+    }
+    .block {
+        &--border {
+            border-color: transparent;
+        }
+    }
+    .tab {
+        &__list {
+            @include justify-content(space-around);
+            margin-right: 0;
+        }
+    }
+    .form {
+        width: 60%;
+        &__input {
+            width: 100%;
+        }
+    }
+    .selectric-wrapper {
+        width: 100%;
+        margin-bottom: 1.4em;
+    }
+    .section {
+        &-padding {
+            &--santa {
+                padding: 15em 0 26.375em 0;
+            }
+        }
+    }
+    .bg {
+        &--santa {
+            background: $color-bg-blue url("../img/bg_santa_small.png")
+                no-repeat center bottom/contain;
+        }
+        &--mount-town {
+            background: url("../img/bg_mount-town_small.jpg") no-repeat center
+                bottom/cover;
+        }
+        &--deer {
+            background: url("../img/bg_deer_small.jpg") no-repeat center
+                bottom/cover;
+        }
+    }
+}
+@media (max-width: 561px) {
+    .form {
+        width: 100%;
+        &__input {
+            width: 100%;
+        }
+    }
+
+    .block {
+        &--border {
+            padding: 1.5em 2.7em;
+        }
+    }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .header {
+        max-width: 479px;
+        .navigation {
+            display: none;
+        }
+    }
+    .body {
+        font-size: 100% !important;
+    }
+    .sm-none {
+        display: none;
+    }
+    .btn--sm-center {
+        display: block;
+        margin: 0 auto;
+    }
+    .section {
+        &-padding {
+            &--mount-town {
+                padding: 5.875em 0 5em 0;
+            }
+            &--deer {
+                padding: 8.313em 0 6.25em 0;
+            }
+        }
+    }
+    .block {
+        &__title {
+            &--bigger,
+            &--smaller {
+                font-size: 3.65em;
+            }
+            &--bigger {
+                margin-bottom: 1rem;
+            }
+        }
+        &__description {
+            font-size: 1.944em;
+            margin-bottom: 2rem;
+        }
+    }
+    .form {
+        width: 100%;
+        &__input,
+        &__textarea {
+            width: 100%;
+            margin-bottom: 26px;
+        }
+    }
+    .selectric-wrapper {
+        width: 100%;
+        margin-bottom: 26px;
+    }
+    .tab {
+        &__title {
+            text-align: center;
+            font-size: 2.625em;
+            margin: 1.4rem auto 1.875rem;
+        }
+        &__list {
+            @include justify-content(space-around);
+            margin-bottom: 70px;
+        }
+        &__link {
+            width: 85px;
+            height: 85px;
+            margin-right: 0 !important;
+        }
+        &__text {
+            font-size: 1.944em;
+            line-height: 1.2;
+        }
+    }
+}

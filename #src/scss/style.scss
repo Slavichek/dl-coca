@@ -1,0 +1,301 @@
+// font-family: 'Risque', cursive;
+// font-family: 'Roboto', sans-serif;
+
+@import "reset", "custom", "hamburger", "mixins", "responsive", "variables",
+    "nav-menu", "keyframe-arrow", "falling_snow", "shining-stars",
+    "keyframe_snowflake";
+
+body,
+html {
+    font-size: 100%;
+    height: 100%;
+    font-weight: normal;
+    margin: 0;
+    font-family: "Risque", cursive, sans-serif;
+}
+
+body {
+    @include display-flex;
+    @include flex-direction(column);
+    flex: 1 0 auto;
+    font-size: 100%;
+    line-height: 1.1;
+    color: $color-white;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+    padding: 2.688em 0;
+    &--scroll {
+        background: $color-bg-blue;
+    }
+}
+main {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+}
+
+.container,
+.container--header {
+    margin: 0 auto;
+    padding: 0 15px;
+    width: 100%;
+}
+.container {
+    max-width: 82.313em; //1317px; //82.313em; // //
+    &--header {
+        height: 65px;
+        max-width: 1373px; //85.813em; //
+    }
+}
+
+.bg {
+    &--snowflake {
+        background-image: url("../img/snowflake.png");
+        background-position: -150px bottom;
+        background-repeat: no-repeat;
+    }
+    &--santa {
+        background: $color-bg-blue url("../img/bg_santa.png") no-repeat right
+            bottom;
+    }
+    &--mount-town {
+        background: $color-bg-blue url("../img/bg_mount-town.jpg") left
+            bottom/cover no-repeat;
+    }
+    &--deer {
+        background: $color-bg-blue url("../img/bg_deer.jpg") center bottom/cover
+            no-repeat;
+    }
+}
+
+.section {
+    &-padding {
+        padding: 15.813em 0 10em 0;
+        // &--santa {
+        //     padding: 13.125em 0 0 0;
+        // }
+    }
+}
+.block {
+    position: relative;
+    &--xl {
+        flex: 0 0 58%;
+    }
+    &--sm {
+        flex: 0 0 41%;
+    }
+    &--border {
+        padding: 3.625em 2.375em 2em 2.375em;
+        border: 3px solid $color-white;
+        border-radius: 20px;
+    }
+    &__title {
+        margin-bottom: 1.25rem;
+        &--bigger {
+            font-size: 4.5em;
+        }
+        &--smaller {
+            font-size: 3.5em;
+            line-height: 1.18;
+            margin-bottom: 1.875rem;
+        }
+    }
+    &__description {
+        font-size: 2.375em;
+        margin-bottom: 1.875rem;
+    }
+}
+li[data-menuanchor]:not(.active) + li {
+    opacity: 0;
+    visibility: hidden;
+    cursor: default;
+}
+
+.tab {
+    &__list {
+        margin: 0px;
+        padding: 0px;
+        display: flex;
+        list-style: none;
+    }
+
+    &__link {
+        background: $color-white;
+        padding: 10px;
+        overflow: hidden;
+        display: flex;
+        @include align-items(center);
+        @include justify-content(center);
+        width: 9.375em;
+        height: 9.375em;
+        padding: 15px;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: inset 4px 10px 15px rgba(0, 0, 0, 0.25);
+        transition: all 0.25s ease;
+
+        &:not(:last-child) {
+            margin-right: 2em;
+        }
+        &.active {
+            box-shadow: none;
+            background: none;
+            border: 5px solid $color-white;
+        }
+    }
+
+    &__content {
+        display: none;
+        &.active {
+            display: inherit;
+        }
+    }
+    &__info {
+        margin-right: 1.3em;
+    }
+
+    &__img {
+        width: 9.25em;
+    }
+    &__title {
+        font-size: 2.625em;
+        margin-bottom: 1.9rem;
+    }
+    &__text {
+        font-family: "Roboto";
+        font-weight: normal;
+        font-size: 1.75em;
+    }
+}
+.form {
+    width: 40%;
+    &__input {
+        width: 48%;
+        padding: 1em 1.4em;
+    }
+    &__textarea {
+        width: 100%;
+    }
+    &__input,
+    &__textarea {
+        background: transparent;
+        font-family: "Roboto";
+        border: 3px solid $color-white;
+        border-radius: 15px;
+        outline: none;
+        color: $color-white;
+        margin-bottom: 1.4em;
+        &::placeholder {
+            color: $color-white;
+        }
+        &:focus {
+            color: $color-white;
+            background: $color-grey;
+        }
+    }
+    &__textarea {
+        font-size: 16px;
+        padding: 0.8em;
+    }
+}
+
+.selectric-wrapper {
+    width: 47%;
+    &.selectric-open {
+        .selectric {
+            background: $color-grey;
+        }
+    }
+    .selectric {
+        background: transparent;
+        border: 3px solid $color-white;
+        border-radius: 15px;
+        color: $color-white;
+
+        .button {
+            background-color: transparent;
+            &:after {
+                border-style: solid;
+                border-width: 3px 3px 0 0;
+                width: 10px;
+                height: 10px;
+                transform: rotate(135deg);
+                color: $color-white;
+                border-right-color: $color-white;
+                border-top-color: $color-white;
+            }
+        }
+
+        &-items {
+            background: none;
+            border: none;
+            margin-top: -65px;
+            li {
+                &:hover {
+                    color: red;
+                }
+            }
+            .selectric {
+                &-scroll {
+                    border-radius: 15px;
+                }
+            }
+            ul,
+            li {
+                font-size: 1em;
+                background: $color-white;
+            }
+            ul {
+                border-radius: 15px;
+                overflow: hidden;
+
+                border: 3px solid $color-white;
+            }
+            li {
+                border-radius: 15px;
+            }
+        }
+        .label {
+            color: $color-white;
+            font-size: 1em;
+            height: 42px;
+        }
+    }
+}
+
+.message {
+    position: absolute;
+    display: block;
+    padding: 50px 50px 40px 40px;
+    top: 50%;
+    left: 50%;
+    width: 222px;
+    height: 166px;
+    background: url("../img/message.png") center center/contain no-repeat;
+    overflow: hidden;
+    &__text {
+        color: $color-black;
+    }
+}
+.fp-tableCell {
+    height: auto !important;
+    justify-content: center;
+}
+.snowflake {
+    height: 27.938em;
+    width: 27.938em;
+    position: absolute;
+    left: -10%;
+    &--santa {
+        bottom: 10%;
+    }
+    &--mount-town {
+        top: -10%;
+    }
+}

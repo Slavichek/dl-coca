@@ -1,0 +1,64 @@
+a {
+    &:active,
+    &:hover {
+        outline: 0;
+    }
+}
+nav {
+    a {
+        &:hover,
+        &:focus {
+            outline: none;
+        }
+    }
+}
+.navigation {
+    margin-left: 200px;
+    a {
+        overflow: hidden;
+        padding: 0.1em 0.8em;
+        height: 1em;
+        position: relative;
+        display: inline-block;
+        outline: none;
+        color: $color-white;
+        text-decoration: none;
+        letter-spacing: 1px;
+        font-family: "Roboto";
+        text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+        font-size: 1em;
+
+        &:hover,
+        &:focus {
+            span {
+                -webkit-transform: translateY(-100%);
+                -moz-transform: translateY(-100%);
+                transform: translateY(-100%);
+            }
+        }
+        span {
+            position: relative;
+            display: inline-block;
+            -webkit-transition: -webkit-transform 0.3s;
+            -moz-transition: -moz-transform 0.3s;
+            transition: transform 0.3s;
+            &:before {
+                position: absolute;
+                top: 100%;
+                font-family: "Roboto";
+                font-size: 1em;
+                content: attr(data-hover);
+                font-weight: 400;
+                color: red;
+                -webkit-transform: translate3d(0, 0, 0);
+                -moz-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+        }
+    }
+    &__item {
+        &:not(:last-child) {
+            margin-right: 1.3em;
+        }
+    }
+}
